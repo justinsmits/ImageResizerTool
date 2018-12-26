@@ -70,12 +70,13 @@ namespace ImageResizer
         private static void DeleteOldFiles (String basePath)
         {
             DateTime startDate = DateTime.Now;
-            TaskFactory tf = new TaskFactory();
+            // TaskFactory tf = new TaskFactory();
 
             foreach (String fileName in System.IO.Directory.GetFiles(basePath))
             {
-                Task deleteTask = new Task(DeleteFile, fileName);
-                tf.StartNew(DeleteFile, fileName).Wait();
+                //Task deleteTask = new Task(DeleteFile, fileName);
+                //tf.StartNew(DeleteFile, fileName).Wait();
+                DeleteFile(fileName);
             }
             
             DateTime endDate = DateTime.Now;
